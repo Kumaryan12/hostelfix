@@ -13,3 +13,16 @@ button {
   margin: 8px;
   padding: 8px 16px;
 }
+.complaint-item {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 12px;
+  border-radius: 8px;
+}
+.status {
+  color: orange;
+}
+.status.Resolved {
+  color: green;
+  font-weight: bold;
+}

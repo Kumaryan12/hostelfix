@@ -1,9 +1,22 @@
 // Import Firebase modular SDKs
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, collection, addDoc, serverTimestamp, query, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+  query,
+  onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// ✅ Replace this with your actual config — no need for __firebase_config
+// ✅ Replace this with your actual config
 const firebaseConfig = {
   apiKey: "AIzaSyADGsHMnQe2mt3vDpaMkDZUK715RTvKkWo",
   authDomain: "hostelfix-96462.firebaseapp.com",
@@ -13,17 +26,14 @@ const firebaseConfig = {
   appId: "1:594623083730:web:3cf6bcc8165b337799e90b"
 };
 
-// Optional app ID (used in Firestore pathing)
 const appId = "hostelfix-96462";
-
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 let currentUserId = null;
 
-// Show message to user
+// Show toast message
 function showMessage(message, isError = false) {
   const messageBox = document.getElementById('message-box');
   messageBox.textContent = message;
@@ -33,7 +43,7 @@ function showMessage(message, isError = false) {
   setTimeout(() => messageBox.classList.remove('show'), 3000);
 }
 
-// UI Toggle
+// Toggle UI based on login status
 function toggleUI(user) {
   const formSection = document.getElementById("form-section");
   const authSection = document.getElementById("auth");
@@ -56,23 +66,6 @@ function toggleUI(user) {
     currentUserId = null;
   }
 }
-
-// Auth with anonymous
-async function authenticateUser() {
-  try {
-    await signInAnonymously(auth);
-    console.log("Signed in anonymously.");
-  } catch (error) {
-    console.error("Authentication error:", error);
-    showMessage("Authentication failed: " + error.message, true);
-  }
-}
-
-// On auth change
-onAuthStateChanged(auth, (user) => {
-  toggleUI(user);
-  if (!user) authenticateUser();
-});
 
 // Google Sign-In
 async function googleSignIn() {
@@ -163,10 +156,12 @@ function loadComplaints(userId) {
   });
 }
 
-// Event Listeners
+// Listen to auth changes
+onAuthStateChanged(auth, (user) => {
+  toggleUI(user);
+});
+
+// Bind buttons
 document.getElementById("google-signin-btn").addEventListener("click", googleSignIn);
 document.getElementById("logout-btn").addEventListener("click", logout);
 document.getElementById("submit-complaint-btn").addEventListener("click", submitComplaint);
-
-// Initial auth
-authenticateUser();
