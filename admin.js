@@ -31,7 +31,7 @@ document.getElementById("logout-btn").addEventListener("click", async () => {
   window.location.href = "index.html";
 });
 
-// 📦 Load all complaints
+// 📦 Load all complaints (for Admin view)
 function loadAllComplaints() {
   const container = document.getElementById("complaints-container");
   const q = collectionGroup(db, "complaints");
@@ -40,20 +40,32 @@ function loadAllComplaints() {
     container.innerHTML = "";
     snapshot.forEach((docSnap) => {
       const data = docSnap.data();
+      const severity = data.severity || "Moderate"; // fallback
+
       const div = document.createElement("div");
       div.classList.add("complaint-item");
+
       div.innerHTML = `
         <h3>${data.category} - Room ${data.roomNo}</h3>
         <p><strong>Name:</strong> ${data.name}</p>
         <p><strong>Description:</strong> ${data.desc}</p>
+        <p><strong>Severity:</strong> <span class="severity ${severity}">${severity}</span></p>
         <p><strong>Status:</strong> <span class="status">${data.status}</span></p>
-        <button onclick="updateStatus('${docSnap.ref.path}', 'Resolved')">Mark as Resolved</button>
+        <button 
+  onclick="updateStatus('${docSnap.ref.path}', 'Resolved')"
+  class="mt-3 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-md shadow-sm transition-transform duration-200 hover:-translate-y-0.5 w-full sm:w-auto"
+>
+  ✅ Mark as Resolved
+</button>
+
         <hr>
       `;
+
       container.appendChild(div);
     });
   });
 }
+
 
 // ✏️ Update status
 window.updateStatus = async function (docPath, newStatus) {

@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Login - HostelFix</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="flex justify-center items-center h-screen bg-gray-100">
-  <div class="bg-white p-10 rounded shadow-lg text-center">
-    <h1 class="text-3xl font-bold mb-6 text-gray-800">Admin Login</h1>
-    <button id="google-signin-btn" class="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 transition">
-      Sign in with Google
-    </button>
-    <p id="error-msg" class="text-red-500 mt-4 hidden">Access denied. Not an admin email.</p>
-  </div>
+    <link rel="stylesheet" href="styles.css">
 
-  <script type="module" src="admin-login.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Login - HostelFix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-poppins bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 flex justify-center items-center min-h-screen p-4 overflow-hidden relative">
+
+    <div class="blob-1 absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-400 opacity-20 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+    <div class="blob-2 absolute bottom-1/4 right-1/4 transform translate-x-1/2 translate-y-1/2 w-80 h-80 bg-blue-400 opacity-20 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+
+    <div id="message-box" class="message-box"></div>
+
+    <div class="login-container bg-white p-8 sm:p-10 rounded-3xl shadow-2xl text-center max-w-md w-full relative z-10 transform transition-all duration-500 ease-in-out">
+        <div class="mb-8">
+            <h1 class="text-5xl font-montserrat font-extrabold text-gray-900 mb-3 leading-tight">
+                <span class="text-indigo-600">HostelFix</span>
+            </h1>
+            <h2 class="text-2xl font-semibold text-gray-700 font-inter">Admin Login</h2>
+        </div>
+
+        <p class="text-gray-600 mb-8 text-md px-4 leading-relaxed">
+            Welcome, Administrator. Please authenticate with your authorized Google account to proceed.
+        </p>
+
+        <button id="google-signin-btn" class="btn btn-primary w-full py-3.5 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+            <i class="fab fa-google mr-3 text-xl"></i> Sign in with Google
+        </button>
+
+        <p id="error-msg" class="error-message text-red-600 mt-6 font-medium hidden">
+            <i class="fas fa-exclamation-circle mr-2"></i> Access denied. Your email is not authorized.
+        </p>
+    </div>
+
+    <script type="module" src="admin-login.js"></script>
 </body>
 </html>

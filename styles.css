@@ -1,28 +1,406 @@
+/* Custom CSS Variables for easy theme adjustments */
+:root {
+    --primary-blue: #2563eb; /* Blue-600 */
+    --primary-blue-dark: #1d4ed8; /* Blue-800 */
+    --secondary-red: #dc2626; /* Red-600 */
+    --secondary-red-dark: #b91c1c; /* Red-800 */
+    --text-color-dark: #1f2937; /* Gray-900 */
+    --text-color-medium: #374151; /* Gray-800 */
+    --text-color-light: #4b5563; /* Gray-700 */
+    --bg-light: #f9fafb; /* Gray-50 */
+    --bg-medium: #f3f4f6; /* Gray-100 */
+}
+
+/* Base Styles & Font Overrides */
 body {
-  font-family: sans-serif;
-  padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
 }
 
-input, textarea {
-  margin: 8px 0;
-  width: 300px;
-  padding: 8px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
 }
 
-button {
-  margin: 8px;
-  padding: 8px 16px;
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
-.complaint-item {
-  border: 1px solid #ccc;
-  margin: 10px;
-  padding: 12px;
-  border-radius: 8px;
+
+/* General Link & Button Styles */
+.nav-link {
+    color: var(--text-color-medium);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
 }
-.status {
-  color: orange;
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--primary-blue);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
-.status.Resolved {
-  color: green;
-  font-weight: bold;
+
+.nav-link:hover {
+    color: var(--primary-blue);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 2.5rem; /* Increased padding for larger buttons */
+    font-weight: 700; /* Bolder font */
+    border-radius: 0.75rem; /* More rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* More complex transition for better feel */
+    text-decoration: none;
+    letter-spacing: 0.025em; /* Slightly spaced letters */
+    text-transform: uppercase; /* Uppercase text */
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Even stronger shadow */
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-red);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-red-dark);
+}
+
+.btn-cta { /* For the Call to Action section */
+    padding: 1.5rem 3rem;
+    font-size: 1.125rem; /* text-lg */
+}
+
+/* --- Hero Section Background Animations --- */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-light), var(--bg-medium));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensure shapes don't spill out */
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(80px); /* Soft glow effect */
+    animation: float 15s infinite ease-in-out alternate;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background-color: #6366f1; /* Indigo-500 */
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background-color: #3b82f6; /* Blue-500 */
+    bottom: 15%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+.shape-3 {
+    width: 250px;
+    height: 250px;
+    background-color: #a78bfa; /* Violet-400 */
+    top: 40%;
+    right: 25%;
+    animation-delay: 6s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(20px, 30px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* --- Hero Section Text/Button Animations --- */
+.bounce-in h1 {
+    animation: bounceIn 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Fun bounce effect */
+}
+
+.reveal-text {
+    animation: fadeInSlideUp 0.8s forwards ease-out 0.5s; /* Delay after H1 */
+}
+
+.reveal-buttons {
+    animation: fadeInSlideUp 0.8s forwards ease-out 1s; /* Delay after text */
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Pop-in Animation */
+.animate-pop-in {
+    animation: popIn 0.6s forwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+}
+
+.animation-delay-100 { animation-delay: 0.1s !important; }
+.animation-delay-200 { animation-delay: 0.2s !important; }
+.animation-delay-300 { animation-delay: 0.3s !important; }
+.animation-delay-400 { animation-delay: 0.4s !important; }
+.animation-delay-500 { animation-delay: 0.5s !important; }
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* --- Section Fade-in on Scroll (requires JS) --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- About Section Image Animation --- */
+.about-image img {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.about-image.is-visible img {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- Feature Card Animations --- */
+.feature-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.feature-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Call to Action Wave Background --- */
+.wave-background {
+    background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-background::before {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Adjust to control wave visibility */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="height: 100px; width: 100%;"><path d="M321.39,56.44c58-10.79,114.16-30.13,174.16-41.07,60-11.7,130.87-13.24,200.5-8.94,59.78,3.52,110.34,11.58,160.01,23.16,36.57,8.79,73.1,17.43,104.22,25.93,24.1,6.56,47.78,13,67.72,17.2,4.88,1.06,9.75,2.07,14.61,3.06,19.34,3.95,37.62,7.57,55.9,10.6,18.28,3.02,35.5,5.77,51.78,7.9,16.28,2.13,31.62,3.95,45.89,5.49,14.27,1.54,27.72,2.83,39.99,3.84,12.27,1.01,23.36,1.75,32.74,2.2,9.38,0.45,16.92,0.71,21.5,0.85,4.58,0.14,7.2,0.18,7.85,0.22,0.65,0.04,1.06,0.06,1.26,0.07L1200,120H0V0H321.39Z" class="shape-fill" fill="%232563eb"></path></svg>') no-repeat center bottom;
+    background-size: cover;
+    transform: rotate(180deg); /* Flip the wave */
+    pointer-events: none; /* Allow clicks through the wave */
+}
+
+/* --- Dialogflow Chatbot Styling --- */
+df-messenger {
+    --df-messenger-button-titlebar-background-color: var(--primary-blue);
+    --df-messenger-chat-background-color: var(--bg-medium);
+    --df-messenger-font-color: var(--text-color-medium);
+    --df-messenger-send-icon-color: var(--primary-blue);
+    --df-messenger-user-message-background-color: #e3f2fd; /* Light blue */
+    --df-messenger-bot-message-background-color: #ffffff;
+    --df-messenger-button-titlebar-font-color: white;
+    --df-messenger-chip-background-color: #e2e8f0;
+    --df-messenger-chip-font-color: var(--text-color-medium);
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    border-radius: 12px; /* Slightly more rounded */
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* More prominent shadow */
+}
+
+df-messenger .df-messenger-button {
+    border-radius: 50% !important;
+    width: 70px !important; /* Slightly larger button */
+    height: 70px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important; /* Stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+df-messenger .df-messenger-button:hover {
+    transform: scale(1.1) rotate(5deg); /* Spin and grow on hover */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4) !important;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 80vh; /* Adjust hero height for smaller screens */
+        padding-top: 100px; /* Account for fixed navbar */
+    }
+
+    h1 {
+        font-size: 3rem; /* Further adjustment for smaller screens */
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 100%; /* Full width buttons on small screens */
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .about-image {
+        order: -1; /* Image above text on small screens */
+        margin-bottom: 2rem;
+    }
+
+    .shape-1, .shape-2, .shape-3 {
+        filter: blur(50px); /* Less blur on smaller screens */
+    }
+
+    .nav-link {
+        display: none; /* Hide nav links on mobile for now, assuming a JS toggle button */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .hero-section {
+        padding-top: 80px;
+    }
+}
+/* Severity badge styles */
+.severity {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.severity.Low {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.severity.Moderate {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.severity.High {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+.severity.High {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.severity.Moderate {
+  background-color: #fef9c3;
+  color: #92400e;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.severity.Low {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 600;
 }
