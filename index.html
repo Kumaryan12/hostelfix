@@ -1,172 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HostelFix - Your Complaint Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HostelFix - Your Complaint Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="font-poppins bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800 antialiased overflow-x-hidden">
+<body class="font-poppins bg-gradient-to-br from-blue-50 to-indigo-100 text-gray-800 overflow-x-hidden">
+<style>
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
+</style>
 
-    <nav class="w-full bg-white bg-opacity-90 backdrop-blur-sm shadow-sm p-4 fixed top-0 left-0 z-50 flex justify-center">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-2xl font-montserrat font-bold text-blue-700 logo-text">HostelFix</a>
-            <div class="space-x-4 hidden md:flex">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <button class="text-gray-600 md:hidden text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-sm fixed top-0 left-0 w-full z-50 p-4 backdrop-blur-sm">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-blue-700 font-montserrat">HostelFix</a>
+      <div class="hidden md:flex gap-6">
+        <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About</a>
+        <a href="#features" class="text-gray-700 hover:text-blue-600 font-medium">Features</a>
+        <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-32 animate-fade-up">
+    <h1 class="text-5xl sm:text-6xl font-extrabold font-montserrat leading-tight text-gray-900">
+      Effortless <span class="text-blue-600">Complaint Management</span>
+    </h1>
+    <p class="mt-6 text-lg text-gray-700 max-w-2xl mx-auto">
+      HostelFix streamlines the process of reporting, tracking, and resolving hostel-related issues.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 mt-10 justify-center">
+      <a href="student.html" class="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700 transition">
+        <i class="fas fa-user-graduate mr-2"></i> Student Portal
+      </a>
+      <a href="admin-login.html" class="bg-gray-800 text-white px-6 py-3 rounded shadow hover:bg-gray-900 transition">
+        <i class="fas fa-shield-alt mr-2"></i> Admin Dashboard
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white py-20 px-4">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-4xl font-bold text-center mb-12 text-blue-700 font-montserrat">About HostelFix</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-lg text-gray-700 mb-4">HostelFix bridges the communication gap between hostel residents and administrators. It ensures a better living environment for academic success and well-being.</p>
+          <p class="text-lg text-gray-700">Admins get a centralized dashboard to manage complaints, assign tasks, and monitor resolutions—making hostel life smoother and more efficient.</p>
         </div>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <section class="min-h-screen flex items-center justify-center py-20 px-4 relative overflow-hidden z-10 hero-section">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-
-        <div class="container mx-auto text-center z-20 relative">
-            <div class="bounce-in">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-montserrat font-extrabold text-gray-900 leading-tight drop-shadow-lg">
-                    Effortless <span class="text-blue-600">Complaint Management</span>
-                </h1>
-                <p class="mt-6 text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto opacity-0 reveal-text">
-                    HostelFix streamlines the process of reporting, tracking, and resolving hostel-related issues.
-                </p>
-            </div>
-            <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center mt-10 opacity-0 reveal-buttons">
-                <a href="student.html" class="btn btn-primary animate-pop-in">
-                    <i class="fas fa-user-graduate mr-2"></i> Student Portal
-                </a>
-                <a href="admin-login.html" class="btn btn-secondary animate-pop-in animation-delay-200">
-                    <i class="fas fa-shield-alt mr-2"></i> Admin Dashboard
-                </a>
-            </div>
+  <!-- Features Section -->
+  <section id="features" class="py-20 px-4 bg-gray-50">
+    <div class="container mx-auto max-w-7xl">
+      <h2 class="text-4xl font-bold text-center mb-12 text-blue-700 font-montserrat">Key Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature Cards -->
+        <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition">
+          <div class="text-4xl text-blue-600 text-center mb-4"><i class="fas fa-lightbulb"></i></div>
+          <h3 class="text-xl font-semibold text-center mb-2">Easy Complaint Submission</h3>
+          <p class="text-center text-gray-600">Log issues in just a few clicks with full categorization and description.</p>
         </div>
-    </section>
-
-    <section id="about" class="py-20 px-4 bg-white shadow-lg rounded-xl mx-auto container my-16 fade-in">
-        <h2 class="text-4xl font-montserrat font-bold text-center mb-12 text-blue-700">About HostelFix</h2>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-lg leading-relaxed text-gray-700 about-text">
-                <p class="mb-4">HostelFix is designed to bridge the communication gap between hostel residents and administrators. We understand that a comfortable living environment is crucial for academic success and well-being. That's why we've built an intuitive platform where students can easily log complaints, track their status, and receive timely resolutions.</p>
-                <p>For administrators, HostelFix provides a centralized dashboard to manage incoming complaints, assign tasks, monitor progress, and ensure accountability. Our goal is to create a more responsive and efficient hostel management system for everyone.</p>
-            </div>
-            <div class="about-image">
-                <img src="https://via.placeholder.com/600x400/D0DAF0/4F46E5?text=Hostel+Management" alt="Hostel Management Illustration" class="rounded-lg shadow-xl w-full">
-            </div>
+        <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition">
+          <div class="text-4xl text-green-500 text-center mb-4"><i class="fas fa-chart-line"></i></div>
+          <h3 class="text-xl font-semibold text-center mb-2">Real-time Tracking</h3>
+          <p class="text-center text-gray-600">Track complaint status live and get notified about resolutions.</p>
         </div>
-    </section>
-
-    <section id="features" class="py-20 px-4 container mx-auto my-16 fade-in">
-        <h2 class="text-4xl font-montserrat font-bold text-center mb-12 text-blue-700">Key Features</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2">
-                <div class="text-5xl text-blue-500 mb-4 text-center">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3 class="text-2xl font-montserrat font-semibold mb-3 text-center">Easy Complaint Submission</h3>
-                <p class="text-gray-600 text-center">Submit your issues in just a few clicks, categorize them, and add details effortlessly.</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animation-delay-100">
-                <div class="text-5xl text-green-500 mb-4 text-center">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3 class="text-2xl font-montserrat font-semibold mb-3 text-center">Real-time Tracking</h3>
-                <p class="text-gray-600 text-center">Monitor the status of your complaints with live updates and notifications.</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animation-delay-200">
-                <div class="text-5xl text-purple-500 mb-4 text-center">
-                    <i class="fas fa-user-check"></i>
-                </div>
-                <h3 class="text-2xl font-montserrat font-semibold mb-3 text-center">Admin Oversight</h3>
-                <p class="text-gray-600 text-center">Administrators get a powerful dashboard to manage, assign, and resolve issues efficiently.</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animation-delay-300">
-                <div class="text-5xl text-yellow-500 mb-4 text-center">
-                    <i class="fas fa-comments"></i>
-                </div>
-                <h3 class="text-2xl font-montserrat font-semibold mb-3 text-center">Direct Communication</h3>
-                <p class="text-gray-600 text-center">Integrated chat and notification system for direct interaction with staff.</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animation-delay-400">
-                <div class="text-5xl text-teal-500 mb-4 text-center">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
-                <h3 class="text-2xl font-montserrat font-semibold mb-3 text-center">Mobile Friendly</h3>
-                <p class="text-gray-600 text-center">Access HostelFix from any device, anytime, anywhere.</p>
-            </div>
-            <div class="feature-card bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 animation-delay-500">
-                <div class="text-5xl text-orange-500 mb-4 text-center">
-                    <i class="fas fa-clipboard-list"></i>
-                </div>
-                <h3 class="text-2xl font-montserrat font-semibold mb-3 text-center">Detailed Reporting</h3>
-                <p class="text-gray-600 text-center">Generate comprehensive reports on complaint types and resolution times.</p>
-            </div>
+        <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition">
+          <div class="text-4xl text-purple-600 text-center mb-4"><i class="fas fa-user-check"></i></div>
+          <h3 class="text-xl font-semibold text-center mb-2">Admin Oversight</h3>
+          <p class="text-center text-gray-600">Admins can manage and resolve issues via a powerful dashboard.</p>
         </div>
-    </section>
-
-    <section class="bg-blue-700 text-white py-20 px-4 text-center my-16 wave-background relative overflow-hidden fade-in">
-        <h2 class="text-4xl font-montserrat font-bold mb-6">Ready to Experience a Better Hostel Life?</h2>
-        <p class="text-xl max-w-2xl mx-auto mb-10">Join HostelFix today and make your voice heard, or streamline your administrative tasks with ease.</p>
-        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center">
-            <a href="student.html" class="btn btn-cta bg-white text-blue-700 hover:bg-blue-50">
-                <i class="fas fa-id-card-alt mr-2"></i> Get Started as Student
-            </a>
-            <a href="admin-login.html" class="btn btn-cta bg-white text-blue-700 hover:bg-blue-50">
-                <i class="fas fa-cogs mr-2"></i> Admin Login
-            </a>
+        <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition">
+          <div class="text-4xl text-yellow-500 text-center mb-4"><i class="fas fa-comments"></i></div>
+          <h3 class="text-xl font-semibold text-center mb-2">Direct Communication</h3>
+          <p class="text-center text-gray-600">Chat features for smooth communication between students and staff.</p>
         </div>
-    </section>
-
-    <footer id="contact" class="bg-gray-800 text-gray-300 py-12 px-4">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-2xl font-montserrat font-bold text-white mb-4">HostelFix</h3>
-                <p class="text-gray-400 mb-4">Dedicated to improving hostel living through efficient complaint management.</p>
-                <div class="flex space-x-4 text-xl">
-                    <a href="#" class="hover:text-white transition-colors duration-200"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="hover:text-white transition-colors duration-200"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="hover:text-white transition-colors duration-200"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="hover:text-white transition-colors duration-200"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-2xl font-montserrat font-bold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-white transition-colors duration-200">Home</a></li>
-                    <li><a href="#about" class="hover:text-white transition-colors duration-200">About Us</a></li>
-                    <li><a href="#features" class="hover:text-white transition-colors duration-200">Features</a></li>
-                    <li><a href="privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a></li>
-                    <li><a href="terms.html" class="hover:text-white transition-colors duration-200">Terms of Service</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-2xl font-montserrat font-bold text-white mb-4">Contact Us</h3>
-                <p class="text-gray-400 mb-2"><i class="fas fa-map-marker-alt mr-2"></i> 123 Hostel Lane, Campus City, State, 12345</p>
-                <p class="text-gray-400 mb-2"><i class="fas fa-envelope mr-2"></i> support@hostelfix.com</p>
-                <p class="text-gray-400"><i class="fas fa-phone mr-2"></i> +91 98765 43210</p>
-            </div>
+        <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition">
+          <div class="text-4xl text-teal-500 text-center mb-4"><i class="fas fa-mobile-alt"></i></div>
+          <h3 class="text-xl font-semibold text-center mb-2">Mobile Friendly</h3>
+          <p class="text-center text-gray-600">Access the platform on any device, anytime, anywhere.</p>
         </div>
-        <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500">
-            &copy; 2025 HostelFix. All rights reserved.
+        <div class="bg-white p-8 rounded-lg shadow hover:shadow-xl transition">
+          <div class="text-4xl text-orange-500 text-center mb-4"><i class="fas fa-clipboard-list"></i></div>
+          <h3 class="text-xl font-semibold text-center mb-2">Detailed Reporting</h3>
+          <p class="text-center text-gray-600">Analyze complaint trends and resolution efficiency with reports.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-        intent="WELCOME"
-        chat-title="HostelFixBot"
-        agent-id="54676a09-eedb-4c83-8972-88c6d5c5d397"
-        language-code="en"
-        class="df-messenger-custom"
-    ></df-messenger>
+  <!-- CTA Section -->
+  <section class="bg-blue-700 text-white py-20 px-4 text-center">
+    <h2 class="text-3xl sm:text-4xl font-bold font-montserrat mb-6">Ready to Experience a Better Hostel Life?</h2>
+    <p class="text-lg max-w-2xl mx-auto mb-8">Join HostelFix to voice your concerns or manage hostel complaints seamlessly.</p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+      <a href="student.html" class="bg-white text-blue-700 px-6 py-3 rounded shadow hover:bg-blue-50 transition">
+        <i class="fas fa-id-card-alt mr-2"></i> Get Started as Student
+      </a>
+      <a href="admin-login.html" class="bg-white text-blue-700 px-6 py-3 rounded shadow hover:bg-blue-50 transition">
+        <i class="fas fa-cogs mr-2"></i> Admin Login
+      </a>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Footer -->
+  <footer id="contact" class="bg-gray-800 text-gray-300 py-12 px-4">
+    <div class="container mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-4">HostelFix</h3>
+        <p class="text-gray-400 mb-4">Dedicated to making hostel life better through seamless complaint management.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="hover:text-white"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-white">About</a></li>
+          <li><a href="#features" class="hover:text-white">Features</a></li>
+          <li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-white mb-4">Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Hostel Lane, Campus City</p>
+        <p><i class="fas fa-envelope mr-2"></i> support@hostelfix.com</p>
+        <p><i class="fas fa-phone mr-2"></i> +91 98765 43210</p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 mt-8 border-t pt-6 border-gray-700">
+      © 2025 HostelFix. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Optional: Dialogflow Chatbot -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="HostelFixBot"
+    agent-id="54676a09-eedb-4c83-8972-88c6d5c5d397"
+    language-code="en"
+  ></df-messenger>
+
 </body>
 </html>

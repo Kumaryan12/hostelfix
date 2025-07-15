@@ -7,7 +7,7 @@ Only return one word: Low, Moderate, or High.`;
 
   try {
     const res = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyA4jBeDQB-_ADYOP9T-Xdilkzm5Egnjya0',
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -26,6 +26,7 @@ Only return one word: Low, Moderate, or High.`;
       console.warn('Unexpected Gemini response:', responseText);
       return 'Moderate'; // fallback
     }
+
   } catch (error) {
     console.error('Gemini fetch failed:', error);
     return 'Moderate'; // fallback on error
